@@ -1,6 +1,10 @@
 from time import sleep
 import os
 
+'''  
+Usada para escrever as frases iniciais no console
+'''
+
 
 def funcaoEscritaInicial():
     print('---CALCULADORA DE BINÁRIOS---')
@@ -33,9 +37,21 @@ def funcaoEscritaInicial():
     print('...')
     sleep(1)
 
+'''
+Uma linha separadora usada para dividir algumas expressões
+'''
+
 
 def separador():
     print('----------------------------------------------------------')
+
+
+'''
+validador()
+Valida que os caracteres digitados são binários, ou seja,
+que contenham apenas "1" ou "0".
+Se algum valor diferente de 0 ou 1 for encontrado, retorna falso
+'''
 
 
 def validador(valoreInseridos):
@@ -50,6 +66,18 @@ def validador(valoreInseridos):
         print('Tentando novamente...')
         sleep(1.9)
     return existeValorNaoBinario
+
+
+'''
+leitor()
+Executa os dois primeiros inputs e recebe os valores digitados
+como STRING.
+Envia esses valores ao validador(), caso este retorne falso,
+exibe uma mensagem ao usuário e reinicia o leitor()
+Valida se o usuário apertou o enter sem digitar nada.
+Ao final disso, envia os valores já formatados como decimais
+para a funcaoPrincipal()
+'''
 
 
 def leitor():
@@ -83,6 +111,16 @@ def leitor():
         leitor()
 
 
+'''
+finalizar()
+Método executado toda vez que o usuário solicita a finalização
+da aplicação. Isso pode ocorrer pelo continuar() ou
+funcaoPrincipal()
+Exibe uma mensagem com intervalos de tempo sleep()
+e encerra a execução do programa
+'''
+
+
 def finalizar():
     os.system('cls') or None
     sleep(0.5)
@@ -98,14 +136,40 @@ def finalizar():
     exit()
 
 
+'''
+continuar()
+Solicita ao usuario a confirmação de continuação
+caso receba "1", limpa o console e executa o leitor()
+caso receba "2", executa o finalizaR()
+'''
+
+
 def continuar():
     print('Quer realizar outra operação? \n1 - Sim \n2 - Não')
     outraOperacao = input('')
     if outraOperacao == '1':
         os.system('cls') or None
         leitor()
-    else:
+    elif outraOperacao == '2':
         finalizar()
+    else:
+        print("Digite um valor válido...")
+        sleep(1.2)
+        print("Tentando novamente")
+        sleep(1.2)
+        separador()
+        continuar()
+
+
+'''
+funcaoPrincipal
+rebebe dois valores no formato decimal
+*Solicita ao usuário a operação desejada
+**Le o valor inserido pelo usuário, caso inválido executa novamente
+***Verifica que o valor inserido é valido
+****Mostra o resultado da operação de acordo com o valor selecionado
+*****Ao final de qualquer operação, executa o continuar()
+'''
 
 
 def funcaoPrincipal(valor1, valor2):
