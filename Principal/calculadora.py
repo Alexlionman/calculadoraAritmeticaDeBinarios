@@ -42,12 +42,13 @@ def validador(valoreInseridos):
     existeValorNaoBinario = True
     for i in list(valoreInseridos):
         if i != '1' and i != '0':
-            print('Um valor não binário foi inserido, digite somente 0 ou 1')
-            sleep(1.4)
-            print('Tentando novamente...')
-            sleep(1.9)
             existeValorNaoBinario = False
-        break
+            break
+    if not existeValorNaoBinario:
+        print('Um valor não binário foi inserido, digite somente 0 ou 1')
+        sleep(1.4)
+        print('Tentando novamente...')
+        sleep(1.9)
     return existeValorNaoBinario
 
 
@@ -85,7 +86,7 @@ def leitor():
 def finalizar():
     os.system('cls') or None
     sleep(0.5)
-    print('Obrigado por usar nosso aplicação')
+    print('Obrigado por usar nossa aplicação')
     separador()
     sleep(1.5)
     print('Até a próxima...')
