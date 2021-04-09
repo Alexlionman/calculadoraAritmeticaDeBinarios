@@ -37,6 +37,7 @@ def funcaoEscritaInicial():
     print('...')
     sleep(1)
 
+
 '''
 Uma linha separadora usada para dividir algumas expressões
 '''
@@ -52,6 +53,35 @@ Valida que os caracteres digitados são binários, ou seja,
 que contenham apenas "1" ou "0".
 Se algum valor diferente de 0 ou 1 for encontrado, retorna falso
 '''
+
+'''
+conversorDeBinarios()
+CONVERSOR PRINCIPAL DA APLICAÇÃO
+Recebe um numeor binário, ja validado antes
+Verifica o tamanho desse binario
+Inverte o binario para fazer os calculos
+Inicia um laço nesse numero
+Verifica se a posição atual é "1"
+Caso seja, aplica a as regras de potenciacao, usando o valor do index
+Sempre somando isso ao valor decimal e acrescendo um ao index
+Caso seja "0", não faz nada, só acresce ao index
+Retorna o numero decimal obtido através dessas operações
+'''
+
+
+def conversorDeBinarios(valorBinario):
+    index = 0
+    decimal = 0
+    tamanho = len(valorBinario) - 1  # Tamanho do binario digitado
+    valorBinario = valorBinario[::-1]  # inverter todo o numero
+    while index <= tamanho:
+        if valorBinario[index] == "1":
+            decimal += (2**index)
+            index += 1
+        else:
+            decimal = decimal
+            index += 1
+    return decimal
 
 
 def validador(valoreInseridos):
@@ -102,8 +132,8 @@ def leitor():
     if validador(valoresEmConjunto):
         sleep(0.3)
         print("...")
-        valorEmDecimal1 = int((primeiroValorString), 2)
-        valorEmDecimal2 = int((segundoValorString), 2)
+        valorEmDecimal1 = conversorDeBinarios(primeiroValorString)
+        valorEmDecimal2 = conversorDeBinarios(segundoValorString)
         sleep(0.5)
         separador()
         funcaoPrincipal(valorEmDecimal1, valorEmDecimal2)
