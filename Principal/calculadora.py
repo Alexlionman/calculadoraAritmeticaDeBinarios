@@ -91,7 +91,8 @@ def validador(valoreInseridos):
             existeValorNaoBinario = False
             break
     if not existeValorNaoBinario:
-        print('\033[1;31mUm valor não binário foi inserido, digite somente 0 ou 1\033[m')
+        print(
+            '\033[1;31mUm valor não binário foi inserido, digite somente 0 ou 1\033[m')
         sleep(1.4)
         print('Tentando novamente...')
         sleep(1.9)
@@ -137,11 +138,10 @@ def leitor():
         valorEmDecimal2 = conversorDeBinarios(segundoValorString)
         sleep(0.5)
         separador()
-        funcaoPrincipal(valorEmDecimal1, valorEmDecimal2)
+        funcaoPrincipal(valorEmDecimal1, valorEmDecimal2,
+                        primeiroValorString, segundoValorString)
     else:
         leitor()
-
-    recebidos(primeiroValorString, segundoValorString)    
 
 
 '''
@@ -164,7 +164,8 @@ def finalizar():
     sleep(1.5)
     separador()
     sleep(1.5)
-    print('---\033[1;36mCALCULADORA DE BINÁRIOS© Todos os direitos reservados\033[m---')
+    print(
+        '---\033[1;36mCALCULADORA DE BINÁRIOS© Todos os direitos reservados\033[m---')
     print('\033[1;35mDesenvolvido com <3 por Alex, Ana Caroline & Carol\033[m')
     exit()
 
@@ -205,8 +206,10 @@ rebebe dois valores no formato decimal
 '''
 
 
-def funcaoPrincipal(valor1, valor2): 
-    #print('{} e {} ' .format()    IMPRIMIR AQUI O NUMERO EM BINARIO E SUA CONVERSÃO )
+def funcaoPrincipal(valor1, valor2, binario1, binario2):
+    # print('{} e {} ' .format()    IMPRIMIR AQUI O NUMERO EM BINARIO E SUA CONVERSÃO )
+    print('Binario 1: ', binario1, 'Binario 2: ', binario2)
+    print('Decimal 1:', valor1, 'Decimal 2: ', valor2)
     print("Qual operação você deseja realizar?\n\
         Digite + para somar \n\
         Digite * para multiplicação\n\
@@ -251,7 +254,7 @@ def funcaoPrincipal(valor1, valor2):
         print('...')
         sleep(1.0)
         os.system('cls') or None
-        funcaoPrincipal(valor1, valor2)
+        funcaoPrincipal(valor1, valor2, binario1, binario2)
 
 
 '#Inicio da execução'
