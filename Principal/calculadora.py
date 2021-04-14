@@ -9,23 +9,23 @@ Usada para escrever as frases iniciais no console
 def funcaoEscritaInicial():
     print('---CALCULADORA DE BINÁRIOS---')
     sleep(0.5)
-    print('|||||||||||||||       |||||||||||||||       |||||||||||||||')
-    print('|||         |||       |||         |||       |||            ')
+    print('\033[35m|||||||||||||||\033[m      \033[34m|||||||||||||||\033[m      \033[35m|||||||||||||||\033[m')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
     sleep(0.5)
-    print('|||         |||       |||         |||       |||            ')
-    print('|||         |||       |||         |||       |||            ')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
     sleep(0.5)
-    print('|||         |||       |||         |||       |||            ')
-    print('|||||||||||||||       |||||||||||||||       |||            ')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
+    print('\033[35m|||||||||||||||\033[m      \033[34m|||||||||||||||\033[m      \033[35m|||            \033[m')
     sleep(0.5)
-    print('|||||||||||||||       |||||||||||||||       |||            ')
-    print('|||         |||       |||         |||       |||            ')
+    print('\033[35m|||||||||||||||\033[m      \033[34m|||||||||||||||\033[m      \033[35m|||            \033[m')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
     sleep(0.5)
-    print('|||         |||       |||         |||       |||            ')
-    print('|||         |||       |||         |||       |||            ')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
     sleep(0.5)
-    print('|||         |||       |||         |||       |||            ')
-    print('|||         |||  ||   |||         |||  ||   |||||||||||||||')
+    print('\033[35m|||         |||\033[m      \033[34m|||         |||\033[m      \033[35m|||            \033[m')
+    print('\033[35m|||         |||\033[m   \033[34m||\033[m \033[34m|||         |||\033[m  \033[35m||\033[m  \033[35m|||||||||||||||\033[m')
     print('\n\n')
     sleep(0.5)
     print('Seja bem vindo a calculadora, vamos começar?')
@@ -91,7 +91,7 @@ def validador(valoreInseridos):
             existeValorNaoBinario = False
             break
     if not existeValorNaoBinario:
-        print('Um valor não binário foi inserido, digite somente 0 ou 1')
+        print('\033[1;31mUm valor não binário foi inserido, digite somente 0 ou 1\033[m')
         sleep(1.4)
         print('Tentando novamente...')
         sleep(1.9)
@@ -116,16 +116,17 @@ def leitor():
     separador()
     primeiroValorString = input("Insira o 1º valor:  ")
     if primeiroValorString == '':
-        print("Você digitou um valor invalido.")
+        print('\033[1;31mVocê digitou um valor invalido.\033[m')
         sleep(1.3)
         print('Tentando novamente')
         sleep(1.0)
         leitor()
+
     segundoValorString = input("Agora insira o 2º valor:  ")
     if segundoValorString == '':
-        print("Você digitou um valor invalido.")
+        print('\033[1;31mVocê digitou um valor invalido.\033[m')
         sleep(1.3)
-        print('Tentando novamente')
+        print('\033[1mTentando novamente\033[m')
         sleep(1.0)
         leitor()
     valoresEmConjunto = primeiroValorString+segundoValorString
@@ -139,6 +140,8 @@ def leitor():
         funcaoPrincipal(valorEmDecimal1, valorEmDecimal2)
     else:
         leitor()
+
+    recebidos(primeiroValorString, segundoValorString)    
 
 
 '''
@@ -161,8 +164,8 @@ def finalizar():
     sleep(1.5)
     separador()
     sleep(1.5)
-    print('---CALCULADORA DE BINÁRIOS© Todos os direitos reservados---')
-    print('Desenvolvido com <3 por Alex, Ana Caroline & Carol')
+    print('---\033[1;36mCALCULADORA DE BINÁRIOS© Todos os direitos reservados\033[m---')
+    print('\033[1;35mDesenvolvido com <3 por Alex, Ana Caroline & Carol\033[m')
     exit()
 
 
@@ -183,7 +186,7 @@ def continuar():
     elif outraOperacao == '2':
         finalizar()
     else:
-        print("Digite um valor válido...")
+        print("\033[1;31mDigite um valor válido...\033[m")
         sleep(1.2)
         print("Tentando novamente")
         sleep(1.2)
@@ -202,7 +205,8 @@ rebebe dois valores no formato decimal
 '''
 
 
-def funcaoPrincipal(valor1, valor2):
+def funcaoPrincipal(valor1, valor2): 
+    #print('{} e {} ' .format()    IMPRIMIR AQUI O NUMERO EM BINARIO E SUA CONVERSÃO )
     print("Qual operação você deseja realizar?\n\
         Digite + para somar \n\
         Digite * para multiplicação\n\
@@ -239,8 +243,8 @@ def funcaoPrincipal(valor1, valor2):
         sleep(0.7)
         finalizar()
     else:
-        print("""Você precisa selecionar uma das opções mostradas, vamos tentar
-         novamente.""")
+        print("""\033[1;31mVocê precisa selecionar uma das opções mostradas, vamos tentar
+         novamente.\033[m""")
         sleep(2.6)
         print('...Reiniciando...')
         sleep(1.4)
