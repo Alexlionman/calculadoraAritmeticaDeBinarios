@@ -84,6 +84,14 @@ def conversorDeBinarios(valorBinario):
     return decimal
 
 
+def decimalParaBinario(n):
+    b = ''
+    while n != 0:
+        b = b + str(n % 2)
+        n = int(n / 2)
+    return b[::-1]
+
+
 def validador(valoreInseridos):
     existeValorNaoBinario = True
     for i in list(valoreInseridos):
@@ -207,8 +215,10 @@ rebebe dois valores no formato decimal
 
 
 def funcaoPrincipal(valor1, valor2, binario1, binario2):
-    print('O 1º valor binário digitado foi: {} ele equivale a: {} em decimal. '.format(binario1,valor1))
-    print('O 2º valor binário digitado foi: {} ele equivale a: {} em decimal. '.format(binario2,valor2))
+    print('O 1º valor binário digitado foi: {} ele equivale a: {} em decimal. '.format(
+        binario1, valor1))
+    print('O 2º valor binário digitado foi: {} ele equivale a: {} em decimal. '.format(
+        binario2, valor2))
     separador()
     print("Qual operação você deseja realizar?\n\
         Digite + para somar \n\
@@ -216,30 +226,42 @@ def funcaoPrincipal(valor1, valor2, binario1, binario2):
         Digite * para multiplicação\n\
         Digite t para ver todos os resultados\n\
         Digite s para sair")
-    separador()    
+    separador()
     valorSelecionado = input("Insira o caracter da operação desejada: ")
     if valorSelecionado == "+":
         print("A soma de ", valor1, "+", valor2, "é: ", valor1 + valor2)
+        print("O resultado em binário é: ",
+              decimalParaBinario(valor1 + valor2))
         sleep(0.5)
         separador()
         continuar()
     elif valorSelecionado == "*":
         print("A multiplicação de ", valor1, "*",
               valor2, "é: ", valor1 * valor2)
+        print("O resultado em binário é: ",
+              decimalParaBinario(valor1 * valor2))
         sleep(0.5)
         separador()
         continuar()
     elif valorSelecionado == "-":
         print("A Subtração de ", valor1, "-", valor2, "é: ", valor1 - valor2)
+        print("O resultado em binário é: ",
+              decimalParaBinario(valor1 - valor2))
         sleep(0.5)
         separador()
         continuar()
     elif valorSelecionado == 't':
         print('\033[1mTodos os resultados:\033[m ')
         print("A soma de ", valor1, "+", valor2, "é: ", valor1 + valor2)
+        print("A soma em binário dará: ",
+              decimalParaBinario(valor1 + valor2))
         print("A multiplicação de ", valor1, "*",
               valor2, "é: ", valor1 * valor2)
-        print("A divisão de ", valor1, "/", valor2, "é: ", valor1 / valor2)
+        print("A multiplicação em binário dará: ",
+              decimalParaBinario(valor1 * valor2))
+        print("A subtração de ", valor1, "/", valor2, "é: ", valor1 - valor2)
+        print("A subtração em binário dará: ",
+              decimalParaBinario(valor1 - valor2))
         sleep(0.5)
         separador()
         continuar()
@@ -247,7 +269,8 @@ def funcaoPrincipal(valor1, valor2, binario1, binario2):
         sleep(0.7)
         finalizar()
     else:
-        print("""\033[1;31mVocê precisa selecionar uma das opções mostradas, vamos tentar novamente.\033[m""")
+        print(
+            """\033[1;31mVocê precisa selecionar uma das opções mostradas, vamos tentar novamente.\033[m""")
         sleep(2.6)
         print('\033[33m...Reiniciando...\033[m')
         sleep(1.4)
